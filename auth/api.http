@@ -1,0 +1,24 @@
+POST localhost:8000/api/login/
+Content-Type: application/json
+
+{
+  "username": "aaa",
+  "password": "asdfsdfsd"
+}
+###
+
+POST localhost:8000/api/jwt/signin/
+Content-Type: application/json
+
+{
+  "username": "roma1",
+  "password": "123"
+}
+###
+
+GET localhost:8000/api/jwt/check-auth/
+Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJleHAiOjE2NDc0NTE0ODQsImlhdCI6MTY0NzQ0Nzg4NCwic2NvcGUiOiJhY2Nlc3NfdG9rZW4iLCJzdWIiOnsidXNlcl9pZCI6MTUsInVzZXJuYW1lIjoicm9tYTEwIn19.lhyIvipc6XuQq4QUtCJtR63-LkNUklIi4BUq8rFDHps
+###
+
+GET localhost:8000/api/jwt/refresh/
+Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJleHAiOjE2NDc1MzQxOTYsImlhdCI6MTY0NzQ0Nzc3OSwic2NvcGUiOiJyZWZyZXNoX3Rva2VuIiwic3ViIjp7InVzZXJfaWQiOjE1LCJ1c2VybmFtZSI6InJvbWExMCJ9fQ.q_-VBKtcOa05FcoG7xpqfCnT46o7731t6GgSTD9wE30
