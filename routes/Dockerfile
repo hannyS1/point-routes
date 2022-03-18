@@ -6,13 +6,12 @@ RUN apt-get update && apt-get install libffi-dev netcat libgdal-dev postgis -y &
 RUN mkdir /server
 
 COPY ./requirements.txt /server
-COPY ./docker/run.sh /server
-
-RUN ["chmod", "+x", "/server/run.sh"]
 
 RUN pip install -r /server/requirements.txt
 
 COPY . /server
+
+RUN ["chmod", "+x", "/server/run.sh"]
 
 EXPOSE 8000
 
