@@ -45,3 +45,18 @@ services:
         - ./routes/.env
       ports:
         - "8001:8000"
+
+    entry:
+      image: nginx:1.17
+      container_name: entry
+      hostname: entry
+      depends_on:
+        - routes
+        - auth
+      volumes:
+        - ./nginx.conf:/etc/nginx/conf.d/default.conf
+      ports:
+        - 80:80
+#      env_file:
+#        - .env
+      restart: always

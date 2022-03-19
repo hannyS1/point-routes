@@ -6,6 +6,14 @@ from sqlalchemy.orm import Session
 from config.database import SessionLocal
 
 
+def get_db() -> Session:
+    db = SessionLocal()
+    try:
+        yield db
+    finally:
+        db.close()
+
+
 def session(func):
 
     def _get_func_annotations(func_obj) -> dict:

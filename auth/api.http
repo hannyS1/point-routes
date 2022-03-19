@@ -11,13 +11,13 @@ POST localhost:8000/api/jwt/signin/
 Content-Type: application/json
 
 {
-  "username": "roma1",
+  "username": "user1",
   "password": "123"
 }
 ###
 
-GET localhost:8000/api/jwt/check-auth/
-Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJleHAiOjE2NDc0NTE0ODQsImlhdCI6MTY0NzQ0Nzg4NCwic2NvcGUiOiJhY2Nlc3NfdG9rZW4iLCJzdWIiOnsidXNlcl9pZCI6MTUsInVzZXJuYW1lIjoicm9tYTEwIn19.lhyIvipc6XuQq4QUtCJtR63-LkNUklIi4BUq8rFDHps
+GET localhost:8000/api/jwt/check-auth
+Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJleHAiOjE2NDc2OTU3ODMsImlhdCI6MTY0NzY5MjE4Mywic2NvcGUiOiJhY2Nlc3NfdG9rZW4iLCJzdWIiOnsidXNlcl9pZCI6MSwidXNlcm5hbWUiOiJ1c2VyMSJ9fQ.lYCmEr00Irt_-tEb--zIq_R3Dh8pP4MgMsc7bwels-Q
 ###
 
 GET localhost:8000/api/jwt/refresh/

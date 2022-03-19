@@ -1,43 +1,41 @@
 from typing import List
 
-from fastapi import HTTPException
+from fastapi import HTTPException, Depends
 from passlib.context import CryptContext
 from sqlalchemy.orm import Session
 from starlette import status
 
+from config.database import SessionLocal
 from models import User
-from utils.database import session
+from utils.database import get_db
 
 
 class UserService:
 
-    def __init__(self):
+    def __init__(self, db: Session = Depends(get_db)):
         self.hasher = CryptContext(schemes=['sha256_crypt'])
+        self.db = db
 
-    @session
-    def get_all(self, db: Session) -> List[User]:
-        return db.query(User).all()
+    def get_all(self) -> List[User]:
+        return self.db.query(User).all()
 
-    @session
-    def get_by_id(self, db: Session, user_id: int) -> User:
-        user: User = db.query(User).filter(User.id == user_id).first()
+    def get_by_id(self, user_id: int) -> User:
+        user: User = self.db.query(User).filter(User.id == user_id).first()
         if not user:
             raise HTTPException(status_code=status.HTTP_404_NOT_FOUND)
 
         return user
 
-    @session
-    def create_user(self, db: Session, username: str, password: str) -> User:
+    def create_user(self, username: str, password: str) -> User:
         hashed_password = self.hasher.hash(password)
         user = User(username=username, password=hashed_password)
-        db.add(user)
-        db.commit()
-        db.refresh(user)
+        self.db.add(user)
+        self.db.commit()
+        self.db.refresh(user)
         return user
 
-    @session
-    def authenticate_user(self, db: Session, username: str, password: str) -> User:
-        user: User = db.query(User).filter(User.username == username).first()
+    def authenticate_user(self, username: str, password: str) -> User:
+        user: User = self.db.query(User).filter(User.username == username).first()
         if not user:
             raise HTTPException(status_code=status.HTTP_401_UNAUTHORIZED, detail='invalid username')
         if not self.hasher.verify(password, user.password):

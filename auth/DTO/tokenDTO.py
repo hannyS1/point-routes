@@ -9,7 +9,7 @@ class SubDTO(BaseModel):
 
 
 class TokenPayloadDTO(BaseModel):
-    exp: datetime = Field(default=datetime.utcnow() + timedelta(days=0, hours=1))
-    iat: datetime = Field(default=datetime.utcnow())
+    exp: datetime
+    iat: datetime
     scope: str
     sub: SubDTO

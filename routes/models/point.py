@@ -1,10 +1,11 @@
 from sqlalchemy import Column, Integer, String, Float, Boolean
+from sqlalchemy.orm import relationship, relation
 
 from config.database import Base
 
 
 class Point(Base):
-    __tablename__ = 'routes_point'
+    __tablename__ = 'point'
 
     id = Column(
         Integer,

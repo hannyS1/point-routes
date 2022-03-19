@@ -4,3 +4,5 @@ __pycache__/
 
 venv/
 media/
+auth_postgres/
+routes_postgres/

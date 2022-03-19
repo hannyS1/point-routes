@@ -18,7 +18,9 @@ class JWTAuthService:
     def encode_token(self, sub: SubDTO) -> str:
         payload = TokenPayloadDTO(
             scope='access_token',
-            sub=sub
+            sub=sub,
+            exp=datetime.utcnow() + timedelta(days=0, hours=1),
+            iat=datetime.utcnow()
         )
         return jwt.encode(payload.dict(), self.secret_key, algorithm='HS256')
 
@@ -38,6 +40,7 @@ class JWTAuthService:
     def encode_refresh_token(self, sub: SubDTO) -> str:
         payload: TokenPayloadDTO = TokenPayloadDTO(
             exp=datetime.utcnow() + timedelta(days=1),
+            iat=datetime.utcnow(),
             scope='refresh_token',
             sub=sub
         )

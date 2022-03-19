@@ -1,0 +1,36 @@
+GET http://localhost/route-service/api/routes
+Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJleHAiOjE2NDc2ODkwNTgsImlhdCI6MTY0NzY4NTQ1OCwic2NvcGUiOiJhY2Nlc3NfdG9rZW4iLCJzdWIiOnsidXNlcl9pZCI6MSwidXNlcm5hbWUiOiJ1c2VyMSJ9fQ.KtNKkYqrL_DCAu6bILWbQXElRzT-_2kBH7Xg9Dxb_NY
+###
+
+
+GET http://localhost/route-service/api/routes/my
+Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJleHAiOjE2NDc2ODkwNTgsImlhdCI6MTY0NzY4NTQ1OCwic2NvcGUiOiJhY2Nlc3NfdG9rZW4iLCJzdWIiOnsidXNlcl9pZCI6MSwidXNlcm5hbWUiOiJ1c2VyMSJ9fQ.KtNKkYqrL_DCAu6bILWbQXElRzT-_2kBH7Xg9Dxb_NY
+###
+
+POST http://localhost/route-service/api/routes
+Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJleHAiOjE2NDc3MTMxNTQsImlhdCI6MTY0NzcwOTU1NCwic2NvcGUiOiJhY2Nlc3NfdG9rZW4iLCJzdWIiOnsidXNlcl9pZCI6MSwidXNlcm5hbWUiOiJ1c2VyMSJ9fQ.MUgTFFeNs_cDcaC4L_QbAljTZz1J8hwjN1xtnMdh42Y
+Content-Type: application/json
+
+{
+  "title": "333",
+  "start_point_id": 3,
+  "end_point_id": 1
+}
+###
+
+GET http://localhost/auth-service/api/users
+###
+
+POST http://localhost/auth-service/api/jwt/signin
+Content-Type: application/json
+
+{
+  "username": "user1",
+  "password": "123"
+}
+
+###
+
+GET http://localhost/route-service/api/routes/my
+Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJleHAiOjE2NDc3MTU0MjEsImlhdCI6MTY0NzcxMTgyMSwic2NvcGUiOiJhY2Nlc3NfdG9rZW4iLCJzdWIiOnsidXNlcl9pZCI6MSwidXNlcm5hbWUiOiJ1c2VyMSJ9fQ.maZCKpfPbuzeSDfcNiC07dlw4M5REpoInNItuR6KucA
+###
