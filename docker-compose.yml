@@ -13,9 +13,9 @@ services:
       build:
         context: ./auth
         dockerfile: Dockerfile
-      entrypoint: uvicorn main:app --host 0.0.0.0 --port 8000 --reload
-      volumes:
-        - ./auth:/server
+#      entrypoint: uvicorn main:app --host 0.0.0.0 --port 8000 --reload
+#      volumes:
+#        - ./auth:/server
       depends_on:
         - auth_db
       env_file:
@@ -36,9 +36,9 @@ services:
       build:
         context: ./routes
         dockerfile: Dockerfile
-      entrypoint: uvicorn main:app --host 0.0.0.0 --port 8000 --reload
-      volumes:
-        - ./routes:/server
+#      entrypoint: uvicorn main:app --host 0.0.0.0 --port 8000 --reload
+#      volumes:
+#        - ./routes:/server
       depends_on:
         - routes_db
       env_file:
