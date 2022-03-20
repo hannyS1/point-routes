@@ -5,7 +5,7 @@
 
 2.__Из корневой папки запускаем docker-compose__
 ```bash
-docker-compose up -d
+docker-compose up
 ```
 
 ### Работа с сервисом
