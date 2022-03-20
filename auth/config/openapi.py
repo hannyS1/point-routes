@@ -166,6 +166,31 @@ OPENAPI_SCHEMA = {
                 }
             }
         },
+        "/api/users/me": {
+            "get": {
+                "summary": "Me",
+                "operationId": "me_api_users_me_get",
+                "responses": {
+                    "200": {
+                        "description": "Successful Response",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/UserDTO"
+                                }
+                            }
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "HTTPBearer": [
+
+                        ]
+                    }
+                ]
+            }
+        },
         "/api/users/{user_id}": {
             "get": {
                 "summary": "Get By Id",
