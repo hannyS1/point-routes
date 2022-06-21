@@ -2,7 +2,7 @@ from typing import List
 
 from pydantic import BaseModel
 
-from DTO import PointDTO
+from .point import PointDTO
 
 
 class RouteCreateDTO(BaseModel):
